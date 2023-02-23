@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
+import com.yandex.mapkit.Animation
 import com.yandex.mapkit.RequestPoint
 import com.yandex.mapkit.RequestPointType
 import com.yandex.mapkit.directions.DirectionsFactory
@@ -62,7 +63,9 @@ fun buildRoute(
     mapView.map.move(
         CameraPosition(
             SCREEN_CENTER, 14f, 0f, 0f
-        )
+        ),
+        Animation(Animation.Type.SMOOTH, 1.5F),
+        null
     )
 
     // Create a new driving router
